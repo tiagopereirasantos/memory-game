@@ -17,7 +17,6 @@
   position: relative;
   transition: all 400ms ease;
   transform-style: preserve-3d;
-  margin : 100px;
 }
 
 .face{
@@ -30,7 +29,6 @@
 }
 
 .front{
-  background-image: url(/images/michael.png);
   transform: rotateY(180deg);
 }
 
