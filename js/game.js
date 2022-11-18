@@ -31,6 +31,8 @@ function createCard(character){
   card.appendChild(front);
   card.appendChild(back);
 
+  card.addEventListener("click", revealCard);
+
   return card;
 
 }
@@ -40,7 +42,7 @@ function loadGame(){
 
   var duplicateCharacters = [...characters, ...characters]
 
-  var shuffledArray = duplicateCharacters.sort(() =>Math.random() -0.5);
+  var shuffledArray = duplicateCharacters.sort(() => Math.random() - 0.5);
 
   shuffledArray.forEach(function(character){
     
@@ -48,6 +50,25 @@ function loadGame(){
 
     grid.appendChild(card);
   })
+}
+
+var firstCard = ``;
+var secondCard = ``;
+
+function revealCard(event){
+
+  var selectedCard = event.target.parentNode;
+
+if (firstCard == ``){
+  selectedCard.classList.add("reveal-card");
+  firstCard = selectedCard;
+}
+
+else if (secondCard == ``){
+  selectedCard.classList.add("reveal-card");
+  secondCard = selectedCard;
+}
+
 }
 
 loadGame()
