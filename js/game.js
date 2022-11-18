@@ -32,6 +32,7 @@ function createCard(character){
   card.appendChild(back);
 
   card.addEventListener("click", revealCard);
+  card.setAttribute("data-character", character);
 
   return card;
 
@@ -52,22 +53,56 @@ function loadGame(){
   })
 }
 
+function checkCards(){
+
+  var firstCharacter = firstCard.getAttribute("data-character");
+  var secondCharacter = secondCard.getAttribute("data-character");
+
+  if (firstCharacter == secondCharacter){
+      firstCard.firstChild.classList.add("disabled-card");
+      secondCard.firstChild.classList.add("disabled-card");
+
+      return;
+  } else{
+
+    setTimeout(function (){
+      firstCard.classList.remove("reveal-card");
+      secondCard.classList.remove("reveal-card");
+
+      firstCard  = ``;
+      secondCard  = ``;
+       
+    }, 500);
+   
+  }
+
+}
+
+
 var firstCard = ``;
 var secondCard = ``;
 
 function revealCard(event){
 
+  console.log(event.target)
+
   var selectedCard = event.target.parentNode;
 
-if (firstCard == ``){
-  selectedCard.classList.add("reveal-card");
-  firstCard = selectedCard;
-}
+  if (selectedCard.className.includes("reveal-card")){
+    return;
+  }
 
-else if (secondCard == ``){
-  selectedCard.classList.add("reveal-card");
-  secondCard = selectedCard;
-}
+  if (firstCard == ``){
+    selectedCard.classList.add("reveal-card");
+    firstCard = selectedCard;
+  }
+
+  else if (secondCard == ``){
+    selectedCard.classList.add("reveal-card");
+    secondCard = selectedCard;
+
+    checkCards();
+  }
 
 }
 
