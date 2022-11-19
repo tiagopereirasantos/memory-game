@@ -2,10 +2,6 @@ var loginInput = document.querySelector(".login-input");
 var loginButton = document.querySelector(".login-button");
 var loginForm = document.querySelector(".login-form");
 
-/*
-const audio = new Audio('meu_audio.mp3');
-audio.play();
-*/
  
 function validateInput (event){
   var inputLength = event.target.value.length;
@@ -21,7 +17,7 @@ function handleSubmit(event){
   event.preventDefault();
 
   localStorage.setItem('player', loginInput.value); 
-  location = "pages/game.html"
+  location = "./game.html"
 }
 
 loginInput.addEventListener("input", validateInput);
