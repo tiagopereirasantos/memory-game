@@ -32,7 +32,7 @@ function createCard(character){
   var front = createElement("div", "front face");
   var back = createElement("div", "back face");
   
-  front.style.backgroundImage = `url(/images/${character}.png)`
+  front.style.backgroundImage = `url(./images/${character}.png)`
   card.appendChild(front);
   card.appendChild(back);
 
