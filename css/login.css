@@ -24,7 +24,7 @@
 } 
 
 .login-header h1{
-  color : #ff5757;
+  color : black;
   font-size: 2.5em;
 }
 
@@ -33,7 +33,7 @@
   max-width: 300px;
   border: 2px solid #333;
   border-radius : 8px;
-  color: #ff5757;
+  color: black;
   font-size: 1em;
   margin-bottom: 15px;
   padding: 15px;
@@ -42,7 +42,7 @@
 .login-button{
   width:100%;
   max-width: 300px;
-  background-color: #ff5757;
+  background-color: Black;
   color:#fff;
   cursor: pointer;
   font-size: 1em;
@@ -62,3 +62,19 @@
   transition: 0.5s;
 }
 
+footer{
+  background: lightgrey;
+  text-align : center;
+  padding-top: 15px;
+  padding-bottom: 9px;
+}
+#github, #linkedin{
+  margin: 10px 10px 0px 10px; 
+  display: flexbox;
+  height: 40px;
+}
+#github:hover, #linkedin:hover{
+  transform : scale(1.2);
+  cursor : pointer;
+
+}
