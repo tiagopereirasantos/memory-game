@@ -17,7 +17,7 @@ function handleSubmit(event){
   event.preventDefault();
 
   localStorage.setItem('player', loginInput.value); 
-  location = "./game.html"
+  location = "../docs/game.html"
 }
 
 loginInput.addEventListener("input", validateInput);

@@ -120,7 +120,7 @@ function checkEndGame(){
 
   if (disabledCards.length == 24 ){
     clearInterval(this.loop); 
-    alert(`Parabéns, ${spanPlayer.innerHTML}! Você finalizou o jogo em ${spanTimer.innerHTML} s.`);
+    alert(`Parabéns, ${spanPlayer.innerHTML}! Voc finalizou o jogo em ${spanTimer.innerHTML} s.`);
   }
 }
 
