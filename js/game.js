@@ -18,6 +18,11 @@ var characters = [
   "toby",
 ]
 
+var wrongCounter = 0;
+var audioError = new Audio("./audio/noGod.mp3");
+var audioWin = new Audio("./audio/win.mp3");
+var audioRight = new Audio("./audio/yes.mp3");
+
 resumeGame()
 
 function createElement(tag, className){
@@ -63,6 +68,9 @@ function checkCards(){
   var secondCharacter = secondCard.getAttribute("data-character");
 
   if (firstCharacter == secondCharacter){
+      
+      audioRight.play(); 
+      wrongCounter = 0;  
       firstCard.firstChild.classList.add("disabled-card");
       secondCard.firstChild.classList.add("disabled-card");
 
@@ -75,19 +83,29 @@ function checkCards(){
     setTimeout(function (){
       firstCard.classList.remove("reveal-card");
       secondCard.classList.remove("reveal-card");
-
+      
       resumeGame();
-       
+      errorCounter();
+      
     }, 500);
    
   }
 
 }
 
+function errorCounter(){
+
+  wrongCounter++;
+  console.log(wrongCounter);
+
+  if (wrongCounter >= 3){
+    
+    audioError.play();
+    wrongCounter = 0;                                                                                                                   
+  }
+}
+
 function revealCard(event){
-
-  console.log(event.target)
-
   var selectedCard = event.target.parentNode;
 
   if (selectedCard.className.includes("reveal-card")){
@@ -120,6 +138,7 @@ function checkEndGame(){
 
   if (disabledCards.length == 24 ){
     clearInterval(this.loop); 
+    audioWin.play();
     alert(`Parabéns, ${spanPlayer.innerHTML}! Você finalizou o jogo em ${spanTimer.innerHTML} s.`);
   }
 }
